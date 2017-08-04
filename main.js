@@ -85,14 +85,14 @@ let formData = [
 // HINTS:
 // As you can see, we access the first element in the array
 // with [0] and then grab the property "label" using the "." operator
- (function(){
-  // Select the first element from the array
-  let first = formData[ 0 ];
-  // Log the first object
-  console.log( first );
-  // Log the string "First Name"
-  console.log( first.label );
-} )();
+//  (function(){
+//   // Select the first element from the array
+//   let first = formData[ 0 ];
+//   // Log the first object
+//   console.log( first );
+//   // Log the string "First Name"
+//   console.log( first.label );
+// } )();
 
 
 // -------- Your Code Goes Below this Line --------
@@ -114,14 +114,14 @@ let form = document.getElementById ("fields");
      } else if
       (formData[i].type === "textarea") {
         // Build text area
+        buildTextArea(i);
       }
-     else if {
-
-    }
+     else {
     buildInput (i);
-     {
-
   }
+}
+
+
   function buildInput (x) {
     let input = document.createElement("input");
     input.setAttribute("id", formData[x].id);
@@ -129,24 +129,38 @@ let form = document.getElementById ("fields");
     input.setAttribute("placeholder", formData[x].label);
     form.appendChild(input);
   }
-  function buildSelect (y) {
+
+  function buildSelect(i) {
     let select = document.createElement("select");
-    select.setAttribute("id", formData[y].id);
-    select.setAttribute("type", formData[y].type);
+    select.setAttribute("id", formData[i].id);
+    select.setAttribute("type", formData[i].type);
     form.appendChild(select);
     // creating options template
-    let option = document.createElement("option");
-    // create text Node for options
-      let optionContent = document.createTextNode(formData[y].options[0].label);
-      option.appendChild(optionContent);
-      option.setAttribute("value", formData[y].options[0].value);
-      select.appendChild(option);
-      for (let j = 0; j < formData[j].options[y].label; j++) {
-        formData[i]
 
+      for (let i = 0; i < formData[i].options.length; i++)
+      {
+        console.log(formData[4].options);
+        let option = document.createElement("option");
+        // create text Node for options
+          let optionContent = document.createTextNode(formData[i].options[i].label);
+          option.appendChild(optionContent);
+          option.setAttribute("value", formData[i].options[i].value);
+
+          select.appendChild(option);
+          // option.value = formData[j].options[j].value[j];
+          // option.appendChild(option.value);
       }
   }
-buildSelect(4);
+
+  function buildTextArea(z) {
+    let textarea = document.createElement("textarea");
+    textarea.setAttribute("label", formData[z].label);
+    textarea.setAttribute("id", formData[z].id);
+    textarea.setAttribute("cols", formData[z].cols);
+    textarea.setAttribute("rows", formData[z].rows);
+    form.appendChild(textarea);
+  }
+console.log(buildSelect(4));
 
 
 
