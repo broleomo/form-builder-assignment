@@ -121,7 +121,6 @@ let form = document.getElementById ("fields");
   }
 }
 
-
   function buildInput (x) {
     let input = document.createElement("input");
     input.setAttribute("id", formData[x].id);
@@ -137,15 +136,13 @@ let form = document.getElementById ("fields");
     form.appendChild(select);
     // creating options template
 
-      for (let i = 0; i < formData[i].options.length; i++)
-      {
-        console.log(formData[4].options);
+      for (let j = 0; j < formData[i].options.length; j++) {
+        // console.log(formData[4].options);
         let option = document.createElement("option");
         // create text Node for options
-          let optionContent = document.createTextNode(formData[i].options[i].label);
+          let optionContent = document.createTextNode(formData[i].options[j].label);
           option.appendChild(optionContent);
-          option.setAttribute("value", formData[i].options[i].value);
-
+          option.setAttribute("value", formData[i].options[j].value);
           select.appendChild(option);
           // option.value = formData[j].options[j].value[j];
           // option.appendChild(option.value);
@@ -160,7 +157,7 @@ let form = document.getElementById ("fields");
     textarea.setAttribute("rows", formData[z].rows);
     form.appendChild(textarea);
   }
-console.log(buildSelect(4));
+// console.log(buildSelect(4));
 
 
 
